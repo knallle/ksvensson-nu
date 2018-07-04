@@ -4,6 +4,18 @@ div.main-content > h1 {
   font-style: '300i';
 }
 
+div.main-content > h2 {
+  font-size: 1.1rem;
+  font-family: 'Merriweather', sans-serif;
+  font-style: '300i';
+}
+
+div.main-content > h3 {
+  font-size: 1.0rem;
+  font-family: 'Merriweather', sans-serif;
+  font-style: '300i';
+}
+
 body {
   background: #ffffff;/* Old Browsers */
   background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%); /* FF3.6+ */

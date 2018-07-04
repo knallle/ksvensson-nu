@@ -9,12 +9,9 @@ import ContentListItem from '../components/contentListItem';
 const Tags = ({ pathContext, data }) => {
   const { tag } = pathContext;
   const { edges } = data.allMarkdownRemark;
-
-
-  const tagHeader = `Posts about #${tag}:`
   return (
     <div>
-      <g.H2 fontStyle='normal'>{tagHeader}</g.H2>
+      <g.H2 fontStyle='normal'>Posts tagged with <i>#{tag}</i></g.H2>
       {edges.map(({ node }) => (
         <ContentListItem node={node} key={node.id} />
       ))}
