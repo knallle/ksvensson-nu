@@ -1,0 +1,2 @@
+webpackJsonp([0xefeaa6d1881d],{215:function(e,t,n){(function(e){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0,t.query=void 0;var a=n(2);o(a);t.default=function(t){t.data;return e.createElement("div",null,e.createElement("h2",null,"About Kalle"),e.createElement("p",null,"We're the only site running on your computer dedicated to showing the best photos and videos of pandas eating lots of food."))};t.query="** extracted graphql fragment **"}).call(t,n(9))}});
+//# sourceMappingURL=component---src-pages-about-js-75f26b28a4f444fcf90f.js.map
