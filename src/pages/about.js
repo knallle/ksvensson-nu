@@ -13,7 +13,7 @@ export default ({data}) => (
       The main structure of this site comes from an excellent tutorial at Gatsby's website (<a href="https://www.gatsbyjs.org/tutorial/">link</a>), which is stronly recommended for those who wish to do as Kalle did and learn how to develop a static web site.
     </p>
     <p>
-      If you wish to learn more about Kalle and/or get in touch with him, please refer to the contact links at the bottom of the page.
+      If you wish to learn more about Kalle and/or get in touch with him, please refer to the contact links at the bottom of the page. :)
     </p>
   </div>
 );
