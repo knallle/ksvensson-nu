@@ -1,0 +1,26 @@
+div.main-content > h1 {
+  font-size: 1.3rem;
+  font-family: 'Merriweather', sans-serif;
+  font-style: '300i';
+}
+
+body {
+  background: #ffffff;/* Old Browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%); /* FF3.6+ */
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffffff), color-stop(45%, #ffffff), color-stop(55%, #444444), color-stop(100%, #444444));/* Chrome, Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%); /* IE 10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 45%, #444444 55%, #444444 100%);/* W3C */
+  background-attachment: fixed!important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html {
+    overflow: scroll;
+    height: 100%;
+}
+
+* { border: 0px solid blue; }
