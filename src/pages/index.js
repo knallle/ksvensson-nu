@@ -10,7 +10,7 @@ export default ({ data }) => {
     <div>
       <h2>All posts</h2>
       {edges.map(({ node }) => (
-        <ContentListItem node={node} key={node.id} />
+        <ContentListItem node={node} key={node.id} mode={'compact'} />
       ))}
     </div>
   );

@@ -23,6 +23,7 @@ const Excerpt = g.p({});
 class ContentListItem extends React.Component {
   render() {
     const node = this.props.node;
+    const mode = this.props.mode;
     return (
       <div key={node.id}>
         <Link
@@ -30,7 +31,7 @@ class ContentListItem extends React.Component {
           css={{ textDecoration: 'none', color: 'inherit' }}
         >
           <Title>{node.frontmatter.title}</Title>
-          <PostInfo node={node} />
+          <PostInfo node={node} mode={mode} />
           <Excerpt>{node.excerpt}</Excerpt>
         </Link>
       </div>
