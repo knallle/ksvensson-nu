@@ -6,21 +6,21 @@ type: 'Project'
 tags: ['python', 'data acquisition', 'web scraping', 'beautiful soup', 'regex']
 published: true
 ---
-This post describes how I scrape the waiting times for all attractions from the web site of the amusement park [Liseberg]() in Gothenburg. My idea is to scrape the times during the next season and scan the data for patterns. Hopefully, I'll be able to find a recipe for selecting days with short waiting times.
+This post describes how I scrape the waiting times for all attractions from the web site of the amusement park [Liseberg](https://www.liseberg.se) in Gothenburg. My idea is to scrape the times during the next season and scan the data for patterns. Hopefully, I'll be able to find a recipe for selecting days with short waiting times.
 
-The scraper is implemented in Python 3 and uses two libraries: [BeautifulSoup]() and [Selenium]().
+The scraper is implemented in Python 3 and uses two libraries: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and [Selenium](http://selenium-python.readthedocs.io).
 
 # Finding the data to scrape
 The first step is to find a reliable source for the data. As always with web scraping, any change by the publisher might break the scraper, so the web page should remain unchanged for a long time.
 
-In the case of Liseberg, the waiting times are displayed on a [page of their web site](https://www.liseberg.se/attraktioner/), which received a large update prior to the current season, so it should not be altered anytime soon. 
+In the case of Liseberg, the waiting times are displayed on a [page of their web site](https://www.liseberg.se/attraktioner/), which received a large update prior to the current season, so it should not be altered anytime soon.
 
 # Downloading the source code of the web site
 
 ## Reasoning behind
 The first step in scraping is to download the source code of the web site. For static web sites, this is really simple: simply use a library such as `requests` or `urllib` and download the website. Liseberg's site, however, is a dynamic site which pre-loads the site and then updates it as soon as the waiting times have been fetched from a database. The result is that with a simple library such as `requests`, instead of displaying the waiting times, the site displays a placeholder along the lines of *"Loading waiting times ..."*.
 
-To solve this, Google turned my attention to the library `Selenium`, which I've never used before. According to its [website](https://www.seleniumhq.org): 
+To solve this, Google turned my attention to the library `Selenium`, which I've never used before. According to its [website](https://www.seleniumhq.org):
 
 > Selenium automates browsers. That's it!
 
@@ -49,7 +49,7 @@ We then wait for three seconds (arbitrarily chosen) in order to allow the waitin
 ```python
 import time
 time.sleep(3)  # Give all elements time to load
-html = browser.page_source 
+html = browser.page_source
 ```
 
 # Selecting the important parts
@@ -98,8 +98,8 @@ except AttributeError:
     waiting_time = 'undefined'
 ```
 where the try-catch statement handles cases where the attraction is closed.
- 
-By doing the above for all attractions, we get all of the names and all of the waiting times for the attractions at Liseberg. 
+
+By doing the above for all attractions, we get all of the names and all of the waiting times for the attractions at Liseberg.
 
 
 # Future steps
