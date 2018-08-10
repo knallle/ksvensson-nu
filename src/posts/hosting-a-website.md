@@ -1,6 +1,6 @@
 ---
 title: "Hosting a site online"
-date: "2017-08-10"
+date: "2018-08-10"
 author: 'Kalle'
 type: 'Post'
 tags: ["web", "git", "project web site"]
