@@ -20,50 +20,11 @@ const InfoDiv = g.div({
 
 });
 
-function AdditionalInfo(props) {
-  const node = props.node;
-  const mode = props.mode;
-
-  const minuteString = (node.timeToRead === 1 ? 'minute': 'minutes');
-  const sortedTags = node.frontmatter.tags.sort(function (a,b) {return a.localeCompare(b);}).reverse();
-
-  if (mode == 'compact') {
-    return (
-      <div>
-        <InfoDiv>
-          <g.Div float='right'>
-            {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
-          </g.Div>
-        </InfoDiv>
-      </div>
-    );
-  } else if (mode == 'normal') {
-
-
-    return (
-      <div>
-        <InfoDiv>
-          {'Time to read: '}{node.timeToRead}{' '}{minuteString}
-        </InfoDiv>
-        <InfoDiv>
-          {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
-        </InfoDiv>
-        <InfoDiv>
-          <g.Div float='right'>
-            {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
-          </g.Div>
-        </InfoDiv>
-      </div>
-    );
-  }
-
-}
-
 class PostInfo extends React.Component {
   render() {
     const node = this.props.node;
-    const mode = this.props.mode;
-
+    const minuteString = (node.timeToRead === 1 ? 'minute': 'minutes');
+    const sortedTags = node.frontmatter.tags.sort(function (a,b) {return a.localeCompare(b);}).reverse();
     return (
       <div>
         <VisualDivider />
@@ -71,7 +32,17 @@ class PostInfo extends React.Component {
           height='100%'
           display='inline-block'
         >
-          <AdditionalInfo node={node} mode={mode} />
+          <InfoDiv>
+            {'Time to read: '}{node.timeToRead}{' '}{minuteString}
+          </InfoDiv>
+          <InfoDiv>
+            {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
+          </InfoDiv>
+          <InfoDiv>
+            <g.Div float='right'>
+              {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
+            </g.Div>
+          </InfoDiv>
         </g.Div>
         <VisualDivider />
       </div>

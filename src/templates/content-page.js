@@ -15,7 +15,7 @@ export default ( { data }) => {
   return (
     <div>
       <Title>{node.frontmatter.title}</Title>
-      <PostInfo node={node} mode={'normal'} />
+      <PostInfo node={node} />
       <div dangerouslySetInnerHTML={{ __html: node.html }} className={"main-content"} />
       </div>
   );
