@@ -26,33 +26,50 @@ function Info(props) {
 
   const minuteString = (node.timeToRead === 1 ? 'minute': 'minutes');
   const sortedTags = node.frontmatter.tags.sort(function (a,b) {return a.localeCompare(b);}).reverse();
-  if (mode == 'compact') {
-    return (
-      <p>Normal</p>
-    );
-  } else if (mode == 'normal') {
-    return (
-      <g.Div
-        height='100%'
-        display='inline-block'
-      >
-        <InfoDiv>
-          {'Time to read: '}{node.timeToRead}{' '}{minuteString}
-        </InfoDiv>
-        <InfoDiv>
-          {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
-        </InfoDiv>
-        <InfoDiv>
-          <g.Div float='right'>
-            {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
-          </g.Div>
-        </InfoDiv>
-      </g.Div>
-    );
-  } else {
-    return (
-      <p>Invalid mode</p>
-    );
+
+  switch(mode) {
+
+    case 'compact':
+      return (
+        <g.Div
+          height='100%'
+          display='inline-block'
+        >
+          <InfoDiv>
+            <g.Div float='right'>
+              {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
+            </g.Div>
+          </InfoDiv>
+        </g.Div>
+      );
+      break;
+
+    case 'normal':
+      return (
+        <g.Div
+          height='100%'
+          display='inline-block'
+        >
+          <InfoDiv>
+            {'Time to read: '}{node.timeToRead}{' '}{minuteString}
+          </InfoDiv>
+          <InfoDiv>
+            {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
+          </InfoDiv>
+          <InfoDiv>
+            <g.Div float='right'>
+              {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
+            </g.Div>
+          </InfoDiv>
+        </g.Div>
+      );
+      break;
+
+    default:
+      return (
+        <p>Invalid mode</p>
+      );
+      break;
   }
 }
 
@@ -63,7 +80,7 @@ class PostInfo extends React.Component {
     return (
       <div>
         <VisualDivider />
-          <Info mode={'normal'} node={node} />
+          <Info mode={'compact'} node={node} />
         <VisualDivider />
       </div>
     )
