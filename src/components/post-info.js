@@ -22,45 +22,48 @@ const InfoDiv = g.div({
 
 function Info(props) {
   const mode = props.mode;
-  if (mode == 'normal') {
+  const node = props.node;
+
+  const minuteString = (node.timeToRead === 1 ? 'minute': 'minutes');
+  const sortedTags = node.frontmatter.tags.sort(function (a,b) {return a.localeCompare(b);}).reverse();
+  if (mode == 'compact') {
     return (
       <p>Normal</p>
     );
-  } else if (mode == 'compact') {
+  } else if (mode == 'normal') {
     return (
-      <p>Compact</p>
+      <g.Div
+        height='100%'
+        display='inline-block'
+      >
+        <InfoDiv>
+          {'Time to read: '}{node.timeToRead}{' '}{minuteString}
+        </InfoDiv>
+        <InfoDiv>
+          {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
+        </InfoDiv>
+        <InfoDiv>
+          <g.Div float='right'>
+            {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
+          </g.Div>
+        </InfoDiv>
+      </g.Div>
     );
   } else {
     return (
       <p>Invalid mode</p>
     );
-  }  
+  }
 }
 
 class PostInfo extends React.Component {
   render() {
     const node = this.props.node;
-    const minuteString = (node.timeToRead === 1 ? 'minute': 'minutes');
-    const sortedTags = node.frontmatter.tags.sort(function (a,b) {return a.localeCompare(b);}).reverse();
+
     return (
       <div>
         <VisualDivider />
-        <g.Div
-          height='100%'
-          display='inline-block'
-        >
-          <InfoDiv>
-            {'Time to read: '}{node.timeToRead}{' '}{minuteString}
-          </InfoDiv>
-          <InfoDiv>
-            {'Published '}{node.frontmatter.date}{' by '}{node.frontmatter.author}
-          </InfoDiv>
-          <InfoDiv>
-            <g.Div float='right'>
-              {node.frontmatter.tags.map( tag => <TagItem tag={tag} key={tag} /> )}
-            </g.Div>
-          </InfoDiv>
-        </g.Div>
+          <Info mode={'normal'} node={node} />
         <VisualDivider />
       </div>
     )
