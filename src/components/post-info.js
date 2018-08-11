@@ -20,6 +20,23 @@ const InfoDiv = g.div({
 
 });
 
+function Info(props) {
+  const mode = props.mode;
+  if (mode == 'normal') {
+    return (
+      <p>Normal</p>
+    );
+  } else if (mode == 'compact') {
+    return (
+      <p>Compact</p>
+    );
+  } else {
+    return (
+      <p>Invalid mode</p>
+    );
+  }  
+}
+
 class PostInfo extends React.Component {
   render() {
     const node = this.props.node;
