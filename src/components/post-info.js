@@ -76,11 +76,12 @@ function Info(props) {
 class PostInfo extends React.Component {
   render() {
     const node = this.props.node;
+    const mode = this.props.mode;
 
     return (
       <div>
         <VisualDivider />
-          <Info mode={'compact'} node={node} />
+          <Info mode={mode} node={node} />
         <VisualDivider />
       </div>
     )
