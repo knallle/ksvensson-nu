@@ -3,7 +3,7 @@ title: "Scraping waiting times at Liseberg amusement park"
 date: "2018-08-08"
 author: 'Kalle'
 type: 'Project'
-tags: ['python', 'data acquisition', 'web scraping', 'beautiful soup', 'regex']
+tags: ['python', 'web scraping', 'beautiful soup']
 published: true
 ---
 This post describes how I scrape the waiting times for all attractions from the web site of the amusement park [Liseberg](https://www.liseberg.se) in Gothenburg. My idea is to scrape the times during the next season and scan the data for patterns. Hopefully, I'll be able to find a recipe for selecting days with short waiting times.

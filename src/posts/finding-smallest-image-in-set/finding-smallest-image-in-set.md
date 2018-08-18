@@ -60,7 +60,7 @@ tmpWidth=$(identify -format "%w" $f)
 
 `identify` is capable of returning many pieces of information about an image, so in order to extract only the width and heigh, I use the `-format` flag with the formatting strings `"%h"` and `"%w"` for the height and width, respectively. More formatting strings are presented in the [documentation](https://www.imagemagick.org/script/escape.php).
 
-The next step is to check if the dimensions of `$f` is smaller than any of the previously checked images (or than the very large numbers set initially)
+The next step is to check if the dimensions of `$f` are smaller than any of the previously checked images (or than the very large numbers set initially)
 
 ```bash
 # Assuming all images have equal aspect ratio => only have to check along one dimension
