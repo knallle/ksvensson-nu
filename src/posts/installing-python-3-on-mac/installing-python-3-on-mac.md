@@ -24,9 +24,9 @@ The newly installed version of Python (3.x) is installed in `/Library/Frameworks
 In order to be able to use Python 3.x to launch scripts in a shell, the path `/usr/local/bin` should be added to the shell PATH. This can either be done manually, or by running the script `Update Shell Profile.command` located in `/Applications/Python3.x/`.
 
 ### Using the fish shell
-The script mentioned above does, unfortunately, not work for the `fish` shell, which I fancy to use. Therefore, the path must be updated manually.
+The script mentioned above does, unfortunately, not work for the `fish` shell, which I fancy. Therefore, the path must be updated manually.
 
-The [official tutorial](https://fishshell.com/docs/current/tutorial.html#tut_path) on fish mentions how to do this. In order to prepend `/usr/local/bin` to the path, modify or create the file `~/.config/fish/config.fish` to include
+The [official tutorial](https://fishshell.com/docs/current/tutorial.html#tut_path) on fish mentions how to do this. In order to prepend `/usr/local/bin` to PATH, modify or create the file `~/.config/fish/config.fish` to include
 
 ```bash
 set PATH /usr/local/bin $PATH
@@ -48,7 +48,7 @@ Having properly added the correct paths to PATH, a Python 3.x script is launched
 python3 ./<script_name>.py
 ```
 
-_(Note that, as with pip, a training '3' is added to 'python' to explicitly state that the program is for Python 3.x)_.
+_(Note that, as with pip, a trailing '3' is added to `python` to explicitly state that the program is for Python 3.x)_.
 
 ## Configure all standard Unix variables for Finder launch
 In order to have correctly working Unix environment variables for Python programs launched from the Finder, the file `~/.MacOSX/environment.plist` has to be created. Details can be found in Apple's Technical Document [QA1067](https://developer.apple.com/library/archive/qa/qa1067/).
